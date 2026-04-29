@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Arduino Esplora — Explorador de Sensores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header-content">
+          <h1 class="title">🌍 Explorador Arduino</h1>
+          <p class="subtitle">Observa los sensores en tiempo real</p>
+        </div>
+        <div class="status-badge" id="status-badge">
+          <span class="status-dot"></span>
+          <span id="conn">conectando...</span>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <section class="sensor-card luz-card">
+          <div class="card-header">
+            <div>
+              <h2>☀️ Luz</h2>
+              <p class="card-desc">Detecta la iluminación ambiental</p>
+            </div>
+          </div>
+          <canvas id="lightChart" height="80"></canvas>
+          <div class="value-display" id="lightValue">—</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="lightProgress" style="width: 0%"></div>
+          </div>
+        </section>
+
+        <section class="sensor-card temp-card">
+          <div class="card-header">
+            <div>
+              <h2>🌡️ Temperatura</h2>
+              <p class="card-desc">Mide el calor del ambiente</p>
+            </div>
+          </div>
+          <div class="value-display large" id="tempValue">—°C</div>
+        </section>
+
+        <section class="sensor-card acc-card">
+          <div class="card-header">
+            <div>
+              <h2>⚡ Acelerómetro</h2>
+              <p class="card-desc">Mide movimientos e inclinación</p>
+            </div>
+          </div>
+          <canvas id="accChart" height="100"></canvas>
+          <div class="axis-values">
+            <span class="axis-x">X: <strong id="accX">0</strong></span>
+            <span class="axis-y">Y: <strong id="accY">0</strong></span>
+            <span class="axis-z">Z: <strong id="accZ">0</strong></span>
+          </div>
+        </section>
+
+        <section class="sensor-card mic-card">
+          <div class="card-header">
+            <div>
+              <h2>🎙️ Micrófono</h2>
+              <p class="card-desc">Detecta sonidos cercanos</p>
+            </div>
+          </div>
+          <div class="value-display" id="micValue">—</div>
+          <div class="progress-bar">
+            <div class="progress-fill mic-fill" id="micProgress" style="width: 0%"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

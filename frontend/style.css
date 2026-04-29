@@ -1,0 +1,217 @@
+:root {
+  --bg-dark: #0f172a;
+  --bg-card: #1a2e4a;
+  --bg-card-hover: #213759;
+  --text-white: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --accent-green: #10b981;
+  --accent-green-light: #6ee7b7;
+  --accent-green-dark: #059669;
+  --border-radius: 32px;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #1a2e4a 100%);
+  color: var(--text-white);
+  min-height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+  padding: 0;
+}
+
+.header-content h1.title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-content .subtitle {
+  font-size: 18px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--accent-green);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-green-light);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.sensor-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sensor-card:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sensor-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(16, 185, 129, 0.15);
+}
+
+.card-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.value-display {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent-green-light);
+  margin: 24px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.value-display.large {
+  font-size: 48px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-green) 0%, var(--accent-green-light) 100%);
+  border-radius: 999px;
+  transition: width 0.3s ease-out;
+}
+
+.mic-fill {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.axis-values {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.axis-values strong {
+  color: var(--accent-green-light);
+}
+
+.axis-x strong { color: #ef4444; }
+.axis-y strong { color: #10b981; }
+.axis-z strong { color: #3b82f6; }
+
+canvas {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .header-content h1.title {
+    font-size: 32px;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sensor-card {
+    padding: 24px;
+  }
+}

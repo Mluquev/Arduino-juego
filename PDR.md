@@ -157,7 +157,7 @@ incorporar elementos lúdicos y artísticos en el aprendizaje por medio de una e
 
 ## 3. Público y contexto de uso
 
-_Esta experiencia va orientada a personas de todas las edades y niveles educativos de todos los niveles académicos que busquen aprender de una manera dinámica y lúdica sobre los temas mencionados, se aplicaría de preferencia en aulas o terrenos de mediana a alta inclinación. accediendo a una apliación que habilite el arduino por medio de bluetooth._
+_Esta experiencia va orientada a personas de todas las edades y niveles educativos de todos los niveles académicos que busquen aprender de una manera dinámica y lúdica sobre los temas mencionados, se aplicaría de preferencia en aulas o terrenos de mediana a alta inclinación. accediendo a una apliación que habilite el arduino._
 
 ---
 

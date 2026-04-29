@@ -1,0 +1,18 @@
+# Backend innecesario (todo se consume de https://arduino.arroyocreativa.com)
+server.js
+package.json
+package-lock.json
+test-*.js
+node_modules/
+
+# Archivos del sistema
+.DS_Store
+.env
+.env.local
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
